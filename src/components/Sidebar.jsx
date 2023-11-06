@@ -5,13 +5,11 @@ import { MdHomeFilled, MdSearch } from "react-icons/md";
 import Playlists from "./Playlists";
 export default function Sidebar() {
   return (
- meron
     <Container>
       <div className="links">
-     {  /* <div className="logo">
+      <div className="logo">
           <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png" />
-  </div> */}
-  <h2>Reactify</h2>
+  </div>
         <ul>
           <li >
             <MdHomeFilled />
@@ -43,7 +41,7 @@ const Container = styled.div`
    .links{
     display: flex;
     flex-direction: column;
-    .logo h2 {
+    .logo{
       text-align: center;
       margin: 1rem , 0;
       img{
@@ -68,15 +66,4 @@ const Container = styled.div`
       }
     }
    }
-
 `;
-=======
-    <div>
-      Sidebar
-    </div>
-  )
-}
-
-export default Sidebar
-
- main
