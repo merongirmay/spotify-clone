@@ -1,25 +1,25 @@
-import React from 'react'
-import styled from 'styled-components'
-import {FaPlayCircle} from 'react-icons/fa';
-import {BiSkipNextCircle, BiSkipPreviousCircle} from 'react-icons/bi';
-
+import React from 'react';
+import styled from 'styled-components';
+import PlayerControls from './PlayerControls';
 
 function Footer() {
   return (
-    <Container> 
-      <BiSkipPreviousCircle />
-      <FaPlayCircle />
-      <BiSkipNextCircle />
+    <Container>
+      <PlayerControls />
     </Container>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
 
 const Container = styled.div`
-background-color:black;
-color:white;
-height:100%;
-border: 1px solid white
-`
-
+  background-color: black;
+  color: white;
+  height: 100%;
+  width: 100%;
+  border-top: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+`;
