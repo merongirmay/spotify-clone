@@ -8,16 +8,18 @@ import Footer from './Footer';
 function Spotify() {
   return (
     <Container>
-      <NavbarContainer>
-        <Navbar />
-      </NavbarContainer>
-      <Sidebar className='sidebarContainer'/>
-      <BodyContainer>
-        <Body />
-      </BodyContainer>
-      <FooterContainer>
+      <div className="spotify-body">
+        <Sidebar />
+        <div className="body">
+          <Navbar />
+          <div className="body-contents">
+            <Body />
+          </div>
+        </div>
+      </div>
+      <div className="spotify-footer">
         <Footer />
-      </FooterContainer>
+      </div>
     </Container>
   );
 }
@@ -25,46 +27,27 @@ function Spotify() {
 export default Spotify;
 
 const Container = styled.div`
+max-width:100vw;
+max-height:100vh;
+overflow:hidden;
 display: grid;
-grid-template-areas:
-  'sidebar navbar'
-  'sidebar body'
-  'footer footer';
-grid-template-rows: auto 1fr auto;
-grid-template-columns: 15vw 1fr; 
-height: 100vh;
-background-color:black;
-color: white;
-.sidebarContainer {
-  grid-area: sidebar;
-  border: 1px solid white;
-  width: 15vw;
-  display: grid;
-  grid-template-rows: 20% 1fr; /* Splitting the sidebar into two parts */
+grid-template-rows :85vh 15vh;
+
+.spotify-body {
+  display:grid;
+  grid-template-columns: 15vw 85vw;
+  height:100%;
+  width:100%;
+  background-color:black;
+  color:white;
+  
+}
+.body {
+  height:100%;
+  width:100%;
+  overflow:auto;
+  background-color:black;
+  color:white;
+  border: 1px solid white
+
 }`
-
-const NavbarContainer = styled.div`
-  grid-area: navbar;
-  border: 1px solid white;
-  height :30vh;
-`;
-
-
-//   border: 1px solid white;
-// `;
-
-// const BottomSidebar = styled.div`
-//   border: 1px solid white;
-// `;
-
-const BodyContainer = styled.div`
-  grid-area: body;
-  border: 1px solid white;
-  width: 85vw;
-`;
-
-const FooterContainer = styled.div`
-  grid-area: footer;
-  border: 1px solid white;
-  height: 10vh;
-`;
