@@ -5,6 +5,7 @@ import { MdHomeFilled, MdSearch } from "react-icons/md";
 import Playlists from "./Playlists";
 export default function Sidebar() {
   return (
+ meron
     <Container>
       <div className="links">
      {  /* <div className="logo">
@@ -69,3 +70,13 @@ const Container = styled.div`
    }
 
 `;
+=======
+    <div>
+      Sidebar
+    </div>
+  )
+}
+
+export default Sidebar
+
+ main
