@@ -19,10 +19,6 @@ export default function Sidebar() {
           <MdSearch />
           <span>Search</span>
           </li>
-          <li>
-          <IoLibrary />
-            <span>Your Library</span>
-          </li>
         </ul>
       </div>
      <Playlists />
@@ -31,25 +27,30 @@ export default function Sidebar() {
 }
 
 const Container = styled.div`
+  /* border: 1px solid white; */
   background-color: black;
-  border: 1px solid white;
   color: rgb(179, 179, 179); 
   display : flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
-   .links{
+  .links{
     display: flex;
     flex-direction: column;
     .logo{
       text-align: center;
       margin: 1rem , 0;
       img{
-        max-inline-size: 80%;
+        max-inline-size: 75%;
         block-size: auto;
+        margin: 5px 0;
       }
     }
     ul{
+      /* border: 1px solid gray; */
+      background-color: #121212;
+      border-radius: 10px;
+      margin: 10px 10px 0 10px ;
       list-style-type: none;
       display: flex;
       flex-direction: column;
@@ -59,9 +60,8 @@ const Container = styled.div`
         display: flex;
         gap: 16px;
         cursor: pointer;
-        transition: 0.2ms ease-in-out ;
+        transition: 0.2.5ms ease-in-out ;
         :hover{
-         color: #fff;
         }
       }
     }
