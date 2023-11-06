@@ -18,7 +18,7 @@ function Login() {
         src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png"
         alt="spotify"
       />
-      <a href={AUTH_URL}>Connect Spotify</a>
+      <a href={AUTH_URL}>Connect Reactify</a>
     </Container>
   );
 }
