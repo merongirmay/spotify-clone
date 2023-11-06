@@ -11,14 +11,7 @@ function Spotify() {
       <NavbarContainer>
         <Navbar />
       </NavbarContainer>
-      <SidebarContainer>
-        <TopSidebar>
-          Home/Search
-        </TopSidebar>
-        <BottomSidebar>
-          Playlists/Library
-        </BottomSidebar>
-      </SidebarContainer>
+      <Sidebar className='sidebarContainer'/>
       <BodyContainer>
         <Body />
       </BodyContainer>
@@ -42,7 +35,13 @@ grid-template-columns: 15vw 1fr;
 height: 100vh;
 background-color:black;
 color: white;
-`;
+.sidebarContainer {
+  grid-area: sidebar;
+  border: 1px solid white;
+  width: 15vw;
+  display: grid;
+  grid-template-rows: 20% 1fr; /* Splitting the sidebar into two parts */
+}`
 
 const NavbarContainer = styled.div`
   grid-area: navbar;
@@ -50,21 +49,13 @@ const NavbarContainer = styled.div`
   height :30vh;
 `;
 
-const SidebarContainer = styled.div`
-  grid-area: sidebar;
-  border: 1px solid white;
-  width: 15vw;
-  display: grid;
-  grid-template-rows: 20% 1fr; /* Splitting the sidebar into two parts */
-`;
 
-const TopSidebar = styled.div`
-  border: 1px solid white;
-`;
+//   border: 1px solid white;
+// `;
 
-const BottomSidebar = styled.div`
-  border: 1px solid white;
-`;
+// const BottomSidebar = styled.div`
+//   border: 1px solid white;
+// `;
 
 const BodyContainer = styled.div`
   grid-area: body;
