@@ -13,11 +13,12 @@ function Spotify() {
       </NavbarContainer>
       <SidebarContainer>
         <TopSidebar>
-          Home/Search
+          Search/home
         </TopSidebar>
         <BottomSidebar>
-          Playlists/Library
+          playlist/library
         </BottomSidebar>
+
       </SidebarContainer>
       <BodyContainer>
         <Body />
