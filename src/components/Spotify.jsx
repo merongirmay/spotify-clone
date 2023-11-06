@@ -35,7 +35,7 @@ grid-template-rows :85vh 15vh;
 
 .spotify-body {
   display:grid;
-  grid-template-columns: 15vw 85vw;
+  grid-template-columns: 20vw 80vw;
   height:100%;
   width:100%;
   background-color:black;
