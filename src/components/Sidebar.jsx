@@ -1,9 +1,71 @@
-import React from 'react'
-
-function Sidebar() {
+import React from "react";
+import styled from "styled-components";
+import { IoLibrary } from "react-icons/io5";
+import { MdHomeFilled, MdSearch } from "react-icons/md";
+import Playlists from "./Playlists";
+export default function Sidebar() {
   return (
-    <div>Sidebar</div>
-  )
+    <Container>
+      <div className="links">
+     {  /* <div className="logo">
+          <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png" />
+  </div> */}
+  <h2>Reactify</h2>
+        <ul>
+          <li >
+            <MdHomeFilled />
+            <span>Home</span>
+          </li>
+          <li>
+          <MdSearch />
+          <span>Search</span>
+          </li>
+          <li>
+          <IoLibrary />
+            <span>Your Library</span>
+          </li>
+        </ul>
+      </div>
+     <Playlists />
+    </Container>
+  );
 }
 
-export default Sidebar
+const Container = styled.div`
+  background-color: black;
+  border: 1px solid white;
+  color: rgb(179, 179, 179); 
+  display : flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+   .links{
+    display: flex;
+    flex-direction: column;
+    .logo h2 {
+      text-align: center;
+      margin: 1rem , 0;
+      img{
+        max-inline-size: 80%;
+        block-size: auto;
+      }
+    }
+    ul{
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      gap: 16px;
+      li{
+        display: flex;
+        gap: 16px;
+        cursor: pointer;
+        transition: 0.2ms ease-in-out ;
+        :hover{
+         color: #fff;
+        }
+      }
+    }
+   }
+
+`;
