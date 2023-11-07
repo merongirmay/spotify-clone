@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const AUTH_URL =
   "https://accounts.spotify.com/authorize?client_id=0384a3364b7d4b1b847e1490f9c3d00c&response_type=token&redirect_uri=http://localhost:5173&scope=streaming%20user-library-read%20user-library-modify%20user-read-email%20user-read-private%20user-modify-playback-state%20user-read-playback-state%20user-read-currently-playing%20user-read-recently-played%20user-read-playback-position%20user-top-read";
+// client ID: 0384a3364b7d4b1b847e1490f9c3d00c    && b65f93f375894416beaa701ef2ec7a2f
 
 function Login() {
   // const navigate = useNavigate(); // Get the navigate function from the hook

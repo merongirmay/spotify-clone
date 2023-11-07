@@ -5,6 +5,7 @@ import { IoLibrary } from "react-icons/io5";
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
+import { MdSearch } from "react-icons/md";
 
 export default function Playlists() {
   const [{ token, playlists }, dispatch] = useStateProvider();
@@ -38,16 +39,26 @@ export default function Playlists() {
 
   return (
     <Container>
-      <div>
-        <IoLibrary />
-        <span>Your Library</span>
-        <BsPlusLg /> <BsArrowRight />
-      </div>
-      Playlists
       <ul>
+      <div className="library">
+        <span>Playlists</span> 
+        
+        <MdSearch />
+        
+      {/*<BsPlusLg /> <BsArrowRight /> */}
+      </div>
         {playlists.map(({ name, id }) => {
           return <li key={id}>{name}</li>;
         })}
+        {playlists.map(({ name, id }) => {
+            return <li key={id}>{name}</li>;
+          })}
+          {playlists.map(({ name, id }) => {
+            return <li key={id}>{name}</li>;
+          })}
+          {playlists.map(({ name, id }) => {
+            return <li key={id}>{name}</li>;
+          })}
       </ul>
     </Container>
   );
@@ -58,8 +69,18 @@ const Container = styled.div`
   overflow: hidden;
   color: rgb(179, 179, 179);
   margin: 10px;
-  ul {
+  
+
+ul {
     /* border: 1px solid white; */
+    .library{
+      position: sticky;
+      top: 0;
+      span{
+          /* background-color: black; */
+    
+      }
+    }
     border-radius: 10px;
     background-color: #121212;
     list-style-type: none;
@@ -67,7 +88,7 @@ const Container = styled.div`
     flex-direction: column;
     padding: 16px;
     gap: 16px;
-    height: 50vh;
+    height: 53vh;
     max-height: 100%;
     overflow: auto;
     &::-webkit-scrollbar {
@@ -85,11 +106,10 @@ const Container = styled.div`
       gap: 16px;
       cursor: pointer;
       transition: 0.2ms ease-in-out;
-      :hover {
-        color: white;
-      }
-      li:hover {
-        color: white;
+      padding: 10px;
+      color: white;
+      &:hover{
+        background-color: black;
       }
     }
   }

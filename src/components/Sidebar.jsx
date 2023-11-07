@@ -19,6 +19,10 @@ export default function Sidebar() {
           <MdSearch />
           <span>Search</span>
           </li>
+          <li>
+          <IoLibrary />
+          <span>Your Library</span>
+          </li>
         </ul>
       </div>
      <Playlists />
@@ -62,6 +66,7 @@ const Container = styled.div`
         cursor: pointer;
         transition: 0.2.5ms ease-in-out ;
         :hover{
+          color: #fff;
         }
       }
     }
