@@ -20,6 +20,7 @@ export default function Body({ headerBackground }) {
           },
         }
       );
+      console.log(data)
       const selectedPlaylist = {
         id: data.id,
         name: data.name,
@@ -28,6 +29,7 @@ export default function Body({ headerBackground }) {
         image: data.images[0].url,
         tracks: data.tracks.items.map(({ track }) => ({
           id: track.id,
+          date: track.added_at,
           name: track.name,
           artists: track.artists.map((artist) => artist.name),
           image: track.album.images[2].url,
@@ -37,10 +39,9 @@ export default function Body({ headerBackground }) {
           track_number: track.track_number,
         })),
       };
-      //   console.log(data);
+      // console.log(data);
 
-        console.log(selectedPlaylist)
-
+      
       dispatch({ type: reducerCases.SET_PLAYLIST, selectedPlaylist });
     };
     getInitialPlaylist();
@@ -73,21 +74,23 @@ export default function Body({ headerBackground }) {
                 backgroundColor: headerBackground ? "#000000dc" : "transparent",
               }}
             >
-              <div className="col">
-                <span>#</span>
+              <div className="col" style = {{marginBottom:"0rem"}}>
+                <span style={{marginLeft: "-2rem", fontWeight:"bold", fontSize: "0.8rem"}}>#</span>
               </div>
               <div className="col">
-                <span>TITLE</span>
+                <span style={{marginLeft: "-2rem", fontWeight:"bold", fontSize: "0.8rem"}}>Title</span>
               </div>
               <div className="col">
-                <span>ALBUM</span>
+                <span style = {{fontSize : "0.8rem", marginLeft: "-13rem",fontWeight:"bold"}}>Album</span>
               </div>
+              
               <div className="col">
                 <span>
-                  <AiFillClockCircle />
+                  <AiFillClockCircle style={{ fontSize: "16px", marginLeft: "-1.5rem"}} />
                 </span>
               </div>
             </div>
+            <div className="line"> </div>
             <div className="tracks">
               {selectedPlaylist.tracks.map(
                 (
@@ -104,24 +107,24 @@ export default function Body({ headerBackground }) {
                   index
                 ) => {
                   return (
-                    <div className="row" key={id}>
+                    <div className="row" key={id} style = {{cursor:"pointer"}}>
                       <div className="col">
-                        <span>{index + 1}</span>
+                        <span style = {{marginLeft :"0.7rem"}}>{index + 1}</span>
                       </div>
                       <div className="col detail">
                         <div className="image">
-                          <img src={image} alt="track" />
+                          <img style = {{marginLeft :"-3.5rem"}} src={image} alt="track" />
                         </div>
                         <div className="info">
-                          <span className="name">{name}</span>
-                          <span>{artists}</span>
+                          <span style = {{fontSize : "1rem", fontWeight: "bold", marginLeft :"-1rem", marginBottom:"0.3rem"}}className="name" >{name}</span>
+                          <span style = {{fontSize : "0.8rem", marginLeft :"-1rem", fontWeight: "bold"}}>{artists}</span>
                         </div>
                       </div>
-                      <div className="col">
-                        <span>{album}</span>
+                      <div className="col-album">
+                        <span style = {{fontSize : "0.8rem", fontWeight: "bold", marginLeft :"8rem", color:"grey"}}>{album}</span>
                       </div>
                       <div className="col">
-                        <span>{convertToMinAndSec(duration)}</span>
+                        <span style = {{fontSize : "0.8rem",fontWeight: "bold",marginLeft :"25rem", color:"grey"}}>{convertToMinAndSec(duration)}</span>
                       </div>
                     </div>
                   );
@@ -136,8 +139,14 @@ export default function Body({ headerBackground }) {
 }
 
 const Container = styled.div`
-    /* background-color: #121212; */
-    /* border-radius: 10px; */
+  .line {
+    position: sticky;
+    top: 15vh;
+    height: 1px;
+    background-color: white;
+    margin-bottom:1rem;
+    margin-top:0;
+  }
   .playlist {
     margin: 0 2rem;
     display: flex;
@@ -145,6 +154,7 @@ const Container = styled.div`
     gap: 2rem;
     .image {
       img {
+        margin-top: 2rem;
         height: 15rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px, 25px, 50px, -12px;
       }
@@ -167,24 +177,23 @@ const Container = styled.div`
       color: #dddcdc;
       margin: 1rem 0 0 0;
       position: sticky;
-      top: 15vh;
+      top: 10vh;
       padding: 1rem 3rem;
       transition: 0.3s ease-in-out;
     }
-
     .tracks {
-      margin: 0 2rem;
       display: flex;
       flex-direction: column;
       margin-bottom: 5rem;
       .row {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.5rem;
         display: grid;
-        grid-template-columns: 0.3fr 3fr 2fr 0.1fr;
+        grid-template-columns: 0.3fr 1fr 1fr 1fr 0.1fr;
         &:hover {
-          background-color: rgb(42, 42,42);
+          background-color: rgb(42, 42, 42);
         }
         .col {
+          margin:rem;
           display: flex;
           align-items: center;
           color: #dddcdc;
