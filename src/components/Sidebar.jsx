@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { IoLibrary } from "react-icons/io5";
 import { MdHomeFilled, MdSearch } from "react-icons/md";
@@ -7,25 +6,25 @@ export default function Sidebar() {
   return (
     <Container>
       <div className="links">
-      <div className="logo">
+        <div className="logo">
           <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png" />
-  </div>
+        </div>
         <ul>
-          <li >
+          <li>
             <MdHomeFilled />
             <span>Home</span>
           </li>
           <li>
-          <MdSearch />
-          <span>Search</span>
+            <MdSearch />
+            <span>Search</span>
           </li>
           <li>
-          <IoLibrary />
-          <span>Your Library</span>
+            <IoLibrary />
+            <span>Your Library</span>
           </li>
         </ul>
       </div>
-     <Playlists />
+      <Playlists />
     </Container>
   );
 }
@@ -33,42 +32,42 @@ export default function Sidebar() {
 const Container = styled.div`
   /* border: 1px solid white; */
   background-color: black;
-  color: rgb(179, 179, 179); 
-  display : flex;
+  color: rgb(179, 179, 179);
+  display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  .links{
+  .links {
     display: flex;
     flex-direction: column;
-    .logo{
+    .logo {
       text-align: center;
-      margin: 1rem , 0;
-      img{
+      margin: 1rem, 0;
+      img {
         max-inline-size: 75%;
         block-size: auto;
         margin: 5px 0;
       }
     }
-    ul{
+    ul {
       /* border: 1px solid gray; */
       background-color: #121212;
       border-radius: 10px;
-      margin: 10px 10px 0 10px ;
+      margin: 10px 10px 0 10px;
       list-style-type: none;
       display: flex;
       flex-direction: column;
       padding: 16px;
       gap: 16px;
-      li{
+      li {
         display: flex;
         gap: 16px;
         cursor: pointer;
-        transition: 0.2.5ms ease-in-out ;
-        :hover{
+        transition: 0.2.5ms ease-in-out;
+        :hover {
           color: #fff;
         }
       }
     }
-   }
+  }
 `;

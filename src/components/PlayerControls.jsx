@@ -1,8 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FaPlayCircle } from 'react-icons/fa';
-import { CiRepeat } from 'react-icons/ci';
-import { BiSkipNext, BiSkipPrevious, BiShuffle } from 'react-icons/bi';
+import styled from "styled-components";
+import { FaPlayCircle } from "react-icons/fa";
+import { CiRepeat } from "react-icons/ci";
+import { BiSkipNext, BiSkipPrevious, BiShuffle } from "react-icons/bi";
 
 function PlayerControls() {
   return (
@@ -24,8 +23,7 @@ function PlayerControls() {
           <CiRepeat />
         </div>
       </div>
-      <div className="right-controls">
-      </div>
+      <div className="right-controls"></div>
     </Container>
   );
 }
@@ -46,7 +44,7 @@ const Container = styled.div`
 
   .play svg {
     color: white;
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
     &:hover {
       color: white;
       transform: scale(1.05);
@@ -66,10 +64,9 @@ const Container = styled.div`
   .repeat svg,
   .shuffle svg {
     color: #b3b3b3;
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
     &:hover {
       color: white;
     }
   }
-}
-`
+`;

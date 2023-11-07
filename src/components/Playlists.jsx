@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
-import { BsPlusLg, BsArrowRight } from "react-icons/bs";
-import { IoLibrary } from "react-icons/io5";
+
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
-import { MdSearch } from "react-icons/md";
 
 export default function Playlists() {
   const [{ token, playlists }, dispatch] = useStateProvider();
@@ -25,8 +23,8 @@ export default function Playlists() {
       const { items } = response.data;
       // console.log(items)
 
-    //const imageUrl = items.images[0].url;
-   // console.log(items.images[0].url);
+      //const imageUrl = items.images[0].url;
+      // console.log(items.images[0].url);
 
       const playlists = items.map(({ name, id }) => {
         return { name, id };
@@ -50,13 +48,8 @@ export default function Playlists() {
 
           {/*<BsPlusLg /> <BsArrowRight /> */}
         </div>
-        {playlists.map(({ name, id,}) => {
-          return (
-            <li key={id}>
-          
-              {name}
-            </li>
-          );
+        {playlists.map(({ name, id }) => {
+          return <li key={id}>{name}</li>;
         })}
         {playlists.map(({ name, id }) => {
           return <li key={id}>{name}</li>;
