@@ -66,10 +66,10 @@ function Spotify() {
     <Container>
       <div className="spotify-body">
         <Sidebar />
-        <div className="body">
-          <Navbar />
+        <div className="body" ref={bodyRef} onScroll={scrollHandler}>
+          <Navbar navBackground={navBackground} />
           <div className="body-contents">
-            <Body />
+            <Body headerBackground={headerBackground}  />
           </div>
         </div>
       </div>
