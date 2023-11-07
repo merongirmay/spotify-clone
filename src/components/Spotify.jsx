@@ -103,6 +103,7 @@ grid-template-rows :85vh 15vh;
   overflow:auto;
   background-color:black;
   color:white;
+
   /* border: 1px solid white; */
   border-radius: 10px;
   background-color: #121212;
@@ -113,6 +114,7 @@ grid-template-rows :85vh 15vh;
       &-thumb {
         background-color: gray;
       }
+
 }
 .body-contents {
   height: 70%;
