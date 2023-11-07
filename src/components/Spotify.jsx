@@ -104,7 +104,6 @@ grid-template-rows :85vh 15vh;
   overflow:auto;
   background-color:black;
   color:white;
-  border: 1px solid white
 }
 .body-contents {
   height: 70%;

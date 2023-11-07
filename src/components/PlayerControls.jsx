@@ -1,18 +1,12 @@
-
 import React from 'react';
 import styled from 'styled-components';
-import { FaPlayCircle, FaMicrophone } from 'react-icons/fa';
-import { HiQueueList } from 'react-icons/hi2';
-import { LuMonitorSpeaker } from 'react-icons/lu';
-import { BsRepeat, BsFillVolumeUpFill} from 'react-icons/bs';
+import { FaPlayCircle } from 'react-icons/fa';
+import { CiRepeat } from 'react-icons/ci';
 import { BiSkipNext, BiSkipPrevious, BiShuffle } from 'react-icons/bi';
-import VolumeBar from './VolumeBar';
-// import SpotifyWebPlayer from 'react-spotify-web-playback';
 
 function PlayerControls() {
   return (
     <Container>
-      <div className="empty"></div>
       <div className="left-controls">
         <div className="shuffle">
           <BiShuffle />
@@ -27,19 +21,10 @@ function PlayerControls() {
           <BiSkipNext />
         </div>
         <div className="repeat">
-          <BsRepeat />
+          <CiRepeat />
         </div>
       </div>
       <div className="right-controls">
-        <div className="volume-bar">
-          <BsFillVolumeUpFill />
-          <VolumeBar />
-        </div>
-        <div className="additional-controls">
-          <FaMicrophone />
-          <HiQueueList />
-          <LuMonitorSpeaker />
-        </div>
       </div>
     </Container>
   );
@@ -52,10 +37,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  .empty {
-    flex: 1;
-  }
-
   .left-controls,
   .right-controls {
     display: flex;
@@ -63,12 +44,9 @@ const Container = styled.div`
     gap: 2rem;
   }
 
-  .play svg,
-  .previous svg,
-  .next svg,
-  .repeat svg {
-    color: #b3b3b3;
-    font-size: 2.5rem;
+  .play svg {
+    color: white;
+    font-size: 2.5rem; 
     &:hover {
       color: white;
       transform: scale(1.05);
@@ -77,14 +55,21 @@ const Container = styled.div`
   }
 
   .previous svg,
-  .next svg,
-  .repeat svg {
-    font-size: 2rem;
+  .next svg {
+    color: #b3b3b3;
+    font-size: 2.2rem;
+    &:hover {
+      color: white;
+    }
   }
 
-  .volume-bar {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  .repeat svg,
+  .shuffle svg {
+    color: #b3b3b3;
+    font-size: 1.2rem; 
+    &:hover {
+      color: white;
+    }
   }
-}`
+}
+`
