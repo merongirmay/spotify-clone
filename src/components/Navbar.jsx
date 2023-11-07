@@ -1,16 +1,20 @@
-
-import React from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import { GoBell } from "react-icons/go";
 import { useStateProvider } from "../utils/StateProvider";
 
-export default function Navbar({navBackground}) {
-  const [{ userInfo}] = useStateProvider();
-//   console.log(userInfo);
+export default function Navbar({ navBackground }) {
+  const [{ userInfo }] = useStateProvider();
+  //   console.log(userInfo);
 
   return (
-    <Container style={{backgroundColor: navBackground ? "rgba(67, 0, 255, 0.7)" : "transparent"}}  >
+    <Container
+      style={{
+        backgroundColor: navBackground
+          ? "rgba(67, 0, 255, 0.7)"
+          : "transparent",
+      }}
+    >
       <div className="search_bar">
         <FaSearch />
         <input type="text" placeholder="Artists, songs or podcasts" />
@@ -40,7 +44,7 @@ const Container = styled.div`
   position: sticky;
   top: 0;
   transition: 0.3s ease-in-out;
-  
+
   .search_bar {
     background-color: white;
     width: 30%;
@@ -106,54 +110,13 @@ const Container = styled.div`
   }
 `;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React, { useEffect } from 'react';
 // import { FaUserAlt, FaUsers, FaBell } from 'react-icons/fa';
 
 // import styled from 'styled-components';
 // import { useStateProvider } from '../utils/StateProvider';
 
-
 // function Navbar() {
- 
 
 //   return (
 //     <Container>
@@ -162,7 +125,7 @@ const Container = styled.div`
 //         <FaUsers />
 //         <FaUserAlt />
 //       </div>
-  
+
 //     </Container>
 //   );
 // }
@@ -191,5 +154,3 @@ const Container = styled.div`
 // //     }
 // //   }
 // // `;
-
-

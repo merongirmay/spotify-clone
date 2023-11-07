@@ -1,10 +1,10 @@
-import React,{ useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import Sidebar from './Sidebar';
-import Navbar from './Navbar';
-import Body from './Body';
-import Footer from './Footer';
-import { useStateProvider } from '../utils/StateProvider';
+import { useEffect, useRef, useState } from "react";
+import styled from "styled-components";
+import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
+import Body from "./Body";
+import Footer from "./Footer";
+import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
 
@@ -17,7 +17,7 @@ function Spotify() {
 
   const [navBackground, setNavBackground] = useState(false);
   const [headerBackground, setHeaderBackground] = useState(false);
-//   console.log(navBackground);
+  //   console.log(navBackground);
 
   const scrollHandler = () => {
     bodyRef.current.scrollTop >= 30
@@ -58,10 +58,6 @@ function Spotify() {
     getUserInfo();
   }, [token, dispatch]);
 
-
-
-
-
   return (
     <Container>
       <div className="spotify-body">
@@ -69,7 +65,7 @@ function Spotify() {
         <div className="body" ref={bodyRef} onScroll={scrollHandler}>
           <Navbar navBackground={navBackground} />
           <div className="body-contents">
-            <Body headerBackground={headerBackground}  />
+            <Body headerBackground={headerBackground} />
           </div>
         </div>
       </div>
@@ -83,42 +79,47 @@ function Spotify() {
 export default Spotify;
 
 const Container = styled.div`
-max-width:100vw;
-max-height:100vh;
-overflow:hidden;
-display: grid;
-grid-template-rows :85vh 15vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 85vh 15vh;
 
-.spotify-body {
-  display:grid;
-  grid-template-columns: 20vw 80vw;
-  height:100%;
-  width:100%;
-  background-color:black;
-  color:white;
-}
-.body {
-  height:100%;
-  width:100%;
-  overflow:auto;
-  background-color:black;
-  color:white;
+  .spotify-body {
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+  }
+  .body {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: black;
+    color: white;
 
-  /* border: 1px solid white; */
-  border-radius: 10px;
-  background-color: #121212;
-  margin: 10px 15px 0 0;
-  &::-webkit-scrollbar {
+    /* border: 1px solid white; */
+    border-radius: 10px;
+    background-color: #121212;
+    margin: 10px 15px 0 0;
+    &::-webkit-scrollbar {
       width: 11px;
 
       &-thumb {
         background-color: gray;
       }
-
-}
-.body-contents {
-  height: 70%;
-  /* border-radius: 10px; */
-  background: linear-gradient(to bottom, #000000 0%, #4300ff 50%, #000000 100%);
-}
-`
+    }
+  }
+  .body-contents {
+    height: 70%;
+    /* border-radius: 10px; */
+    background: linear-gradient(
+      to bottom,
+      #000000 0%,
+      #4300ff 50%,
+      #000000 100%
+    );
+  }
+`;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
@@ -18,7 +18,7 @@ export default function CurrentTrack() {
           },
         }
       );
-    //   console.log(data);
+      //   console.log(data);
       const { item } = data;
       if (data !== "") {
         const currentlyPlaying = {
@@ -27,7 +27,10 @@ export default function CurrentTrack() {
           artists: item.artists.map((artist) => artist.name),
           image: item.album.images[2].url,
         };
-        dispatch({type: reducerCases.SET_CURRENTLY_PLAYING, currentlyPlaying})
+        dispatch({
+          type: reducerCases.SET_CURRENTLY_PLAYING,
+          currentlyPlaying,
+        });
       }
 
       //   dispatch({ type: reducerCases.SET_PLAYLISTS, playlists });
@@ -36,42 +39,38 @@ export default function CurrentTrack() {
     getCurrentTrack();
   }, [token, dispatch]);
 
-  return <Container>
-    {
-        currentlyPlaying && (
-           <div className="track">
-            <div className="track_image">
-                <img src={currentlyPlaying.image} alt={currentlyPlaying} />
-            </div>
-            <div className="track_info">
-                <h4>{currentlyPlaying.name}</h4>
-                <h6>{currentlyPlaying.artists.join(", ")}</h6>
-            </div>
-           </div>
-        )
-    }
-  </Container>;
+  return (
+    <Container>
+      {currentlyPlaying && (
+        <div className="track">
+          <div className="track_image">
+            <img src={currentlyPlaying.image} alt={currentlyPlaying} />
+          </div>
+          <div className="track_info">
+            <h4>{currentlyPlaying.name}</h4>
+            <h6>{currentlyPlaying.artists.join(", ")}</h6>
+          </div>
+        </div>
+      )}
+    </Container>
+  );
 }
 
 const Container = styled.div`
-.track {
-    display:flex;
+  .track {
+    display: flex;
     align-items: center;
     gap: 1rem;
     &_info {
-        display: flex;
-        flex-direction: column;
-        gap:0.3rem;
-        h4 {
-            color: white;
-
-        }
-        h6 {
-            color: #b3b3b3;
-        }
-
-
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      h4 {
+        color: white;
+      }
+      h6 {
+        color: #b3b3b3;
+      }
     }
-
-}
+  }
 `;

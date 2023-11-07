@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import { AiFillClockCircle } from "react-icons/ai";
 import { useStateProvider } from "../utils/StateProvider";
@@ -25,7 +25,7 @@ export default function Body({ headerBackground }) {
         name: data.name,
         //if it starts from anchor tag print an empty string
         description: data.description.startsWith("<a") ? "" : data.description,
-        
+        image: data.images[0].url,
         tracks: data.tracks.items.map(({ track }) => ({
           id: track.id,
           name: track.name,
@@ -39,7 +39,7 @@ export default function Body({ headerBackground }) {
       };
       //   console.log(data);
 
-      //   console.log(selectedPlaylist)
+      console.log(selectedPlaylist);
 
       dispatch({ type: reducerCases.SET_PLAYLIST, selectedPlaylist });
     };
@@ -136,8 +136,8 @@ export default function Body({ headerBackground }) {
 }
 
 const Container = styled.div`
-    /* background-color: #121212; */
-    /* border-radius: 10px; */
+  /* background-color: #121212; */
+  /* border-radius: 10px; */
   .playlist {
     margin: 0 2rem;
     display: flex;
@@ -182,7 +182,7 @@ const Container = styled.div`
         display: grid;
         grid-template-columns: 0.3fr 3fr 2fr 0.1fr;
         &:hover {
-          background-color: rgb(42, 42,42);
+          background-color: rgb(42, 42, 42);
         }
         .col {
           display: flex;
