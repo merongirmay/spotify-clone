@@ -20,7 +20,7 @@ export default function Body({ headerBackground }) {
           },
         }
       );
-      console.log(data)
+      // console.log(data)
       const selectedPlaylist = {
         id: data.id,
         name: data.name,
