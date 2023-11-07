@@ -49,5 +49,10 @@ grid-template-rows :85vh 15vh;
   background-color:black;
   color:white;
   border: 1px solid white
-
-}`
+}
+.body-contents {
+  height: 70%;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #000000 0%, #4300ff 50%, #000000 100%);
+}
+`
