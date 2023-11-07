@@ -26,27 +26,43 @@ export default function Playlists() {
       //const imageUrl = items.images[0].url;
       // console.log(items.images[0].url);
 
-      const playlists = items.map((playlist) => {
-        const name = playlist.name;
-        const id = playlist.id;
-        const ownerName = playlist.owner.display_name;
-        const imageUrl = playlist.images[0].url;
-        const type = playlist.type;
+      // const playlists = items.map((playlist) => {
+      //   const name = playlist.name;
+      //   const id = playlist.id;
+      //   const ownerName = playlist.owner.display_name;
+      //   const imageUrl = playlist.images[0].url;
+      //   const type = playlist.type;
+       
 
-        return { name, id, ownerName, imageUrl, type };
+      //   return { name, id, ownerName, imageUrl, type };
+      // });
+      
+      const playlists = items.map(({ name, id }) => {
+        return { name, id };
       });
-
-      console.log(playlists);
-
+      
+      
       dispatch({ type: reducerCases.SET_PLAYLISTS, playlists });
     };
 
     getPlaylistData();
   }, [token, dispatch]);
 
+  const changeCurrentPlaylist = (selectedPlaylistId) => {
+    dispatch({ type: reducerCases.SET_PLAYLIST_ID, selectedPlaylistId})
+  }
+  
   return (
     <Container>
-      <div className="playlist-container">
+
+<ul>
+        {playlists.map(({ name, id }) => {
+          return <li key={id} onClick={() =>changeCurrentPlaylist(id)} >{name}</li>;
+        })}
+      
+      </ul>
+
+      {/* <div className="playlist-container">
         <div className="library">
           <span>Playlists</span>
           <span>Artist</span>
@@ -86,7 +102,7 @@ export default function Playlists() {
             );
           })} 
        
-        </div>
+  </div> */}
    
     </Container>
   );
