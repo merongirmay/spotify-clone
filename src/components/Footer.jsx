@@ -19,7 +19,7 @@ const Container = styled.div`
   color: white;
   height: 100%;
   width: 100%;
-  border-top: 1px solid white;
+  /* border-top: 1px solid white; */
   display: grid;
     grid-template-columns: 1fr 2fr 1fr;
   /* display: flex; */
