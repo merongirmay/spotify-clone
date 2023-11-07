@@ -21,7 +21,7 @@ export default function Playlists() {
           },
         }
       );
-      console.log(response);
+      // console.log(response);
       const { items } = response.data;
       // console.log(items)
 

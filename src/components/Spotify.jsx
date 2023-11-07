@@ -1,11 +1,67 @@
-import React from 'react';
+import React,{ useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import Body from './Body';
 import Footer from './Footer';
+import { useStateProvider } from '../utils/StateProvider';
+import axios from "axios";
+import { reducerCases } from "../utils/Constants";
 
 function Spotify() {
+  const [{ token }, dispatch] = useStateProvider();
+
+  //   console.log(initialState.navBackground)
+
+  const bodyRef = useRef();
+
+  const [navBackground, setNavBackground] = useState(false);
+  const [headerBackground, setHeaderBackground] = useState(false);
+//   console.log(navBackground);
+
+  const scrollHandler = () => {
+    bodyRef.current.scrollTop >= 30
+      ? setNavBackground(true)
+      : setNavBackground(false);
+
+    bodyRef.current.scrollTop >= 268
+      ? setHeaderBackground(true)
+      : setHeaderBackground(false);
+  };
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      //we can destructure data directly from response object
+      const { data } = await axios.get("https://api.spotify.com/v1/me", {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      });
+
+      //   console.log(data);
+
+      //get user data from fetched object
+      const userInfo = {
+        userId: data.id,
+        userName: data.display_name,
+        userImg: data.images[0].url,
+      };
+
+      //   console.log(userInfo)
+
+      //update userInfo object
+      dispatch({ type: reducerCases.SET_USER, userInfo });
+    };
+
+    //call the function
+    getUserInfo();
+  }, [token, dispatch]);
+
+
+
+
+
   return (
     <Container>
       <div className="spotify-body">
