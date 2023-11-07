@@ -198,6 +198,14 @@ const Container = styled.div`
           .info {
             display: flex;
             flex-direction: column;
+            span{
+              color: d4d5d6;
+              font-size: 12.5px;
+            }
+            .name{
+              color: white;
+              font-size: 16px;
+            }
           }
         }
       }

@@ -6,7 +6,7 @@ const AUTH_URL =
 
 // 0384a3364b7d4b1b847e1490f9c3d00c
 
-// client ID: 0384a3364b7d4b1b847e1490f9c3d00c    && b65f93f375894416beaa701ef2ec7a2f raz: b730b7cf6222456da05e4bb8619a78a4
+// client ID: 0384a3364b7d4b1b847e1490f9c3d00c    && meron: b65f93f375894416beaa701ef2ec7a2f raz: b730b7cf6222456da05e4bb8619a78a4
 
 function Login() {
   // const navigate = useNavigate(); // Get the navigate function from the hook
