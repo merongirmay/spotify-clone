@@ -11,7 +11,7 @@ function PlayerControls() {
   const [{ token, playerState }, dispatch] = useStateProvider();
 
   const changeTrack = async (type) => {
-    await axios.post(
+   const data = await axios.post(
       `https://api.spotify.com/v1/me/player/${type}`,
       {},
       {
