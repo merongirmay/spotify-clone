@@ -25,11 +25,14 @@ export default function Playlists() {
       const { items } = response.data;
       // console.log(items)
 
+    //const imageUrl = items.images[0].url;
+   // console.log(items.images[0].url);
+
       const playlists = items.map(({ name, id }) => {
         return { name, id };
       });
 
-      // console.log(playlists)
+      //console.log(playlists);
 
       dispatch({ type: reducerCases.SET_PLAYLISTS, playlists });
     };
@@ -40,25 +43,30 @@ export default function Playlists() {
   return (
     <Container>
       <ul>
-      <div className="library">
-        <span>Playlists</span> 
-        
-        <MdSearch />
-        
-      {/*<BsPlusLg /> <BsArrowRight /> */}
-      </div>
+        <div className="library">
+          <span>Playlists</span>
+
+          {/* <MdSearch /> */}
+
+          {/*<BsPlusLg /> <BsArrowRight /> */}
+        </div>
+        {playlists.map(({ name, id,}) => {
+          return (
+            <li key={id}>
+          
+              {name}
+            </li>
+          );
+        })}
         {playlists.map(({ name, id }) => {
           return <li key={id}>{name}</li>;
         })}
         {playlists.map(({ name, id }) => {
-            return <li key={id}>{name}</li>;
-          })}
-          {playlists.map(({ name, id }) => {
-            return <li key={id}>{name}</li>;
-          })}
-          {playlists.map(({ name, id }) => {
-            return <li key={id}>{name}</li>;
-          })}
+          return <li key={id}>{name}</li>;
+        })}
+        {playlists.map(({ name, id }) => {
+          return <li key={id}>{name}</li>;
+        })}
       </ul>
     </Container>
   );
@@ -69,16 +77,15 @@ const Container = styled.div`
   overflow: hidden;
   color: rgb(179, 179, 179);
   margin: 10px;
-  
 
-ul {
+  ul {
     /* border: 1px solid white; */
-    .library{
+    .library {
       position: sticky;
       top: 0;
-      span{
-          /* background-color: black; */
-    
+      border: 1px solid white;
+      span {
+        /* background-color: black; */
       }
     }
     border-radius: 10px;
@@ -88,7 +95,7 @@ ul {
     flex-direction: column;
     padding: 16px;
     gap: 16px;
-    height: 53vh;
+    height: 61vh;
     max-height: 100%;
     overflow: auto;
     &::-webkit-scrollbar {
@@ -108,7 +115,7 @@ ul {
       transition: 0.2ms ease-in-out;
       padding: 10px;
       color: white;
-      &:hover{
+      &:hover {
         background-color: black;
       }
     }

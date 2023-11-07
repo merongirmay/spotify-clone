@@ -96,7 +96,6 @@ grid-template-rows :85vh 15vh;
   width:100%;
   background-color:black;
   color:white;
-  
 }
 .body {
   height:100%;
@@ -104,10 +103,22 @@ grid-template-rows :85vh 15vh;
   overflow:auto;
   background-color:black;
   color:white;
+
+  /* border: 1px solid white; */
+  border-radius: 10px;
+  background-color: #121212;
+  margin: 10px 15px 0 0;
+  &::-webkit-scrollbar {
+      width: 11px;
+
+      &-thumb {
+        background-color: gray;
+      }
+
 }
 .body-contents {
   height: 70%;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   background: linear-gradient(to bottom, #000000 0%, #4300ff 50%, #000000 100%);
 }
 `
