@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaUsers } from "react-icons/fa";
 import { GoBell } from "react-icons/go";
 import { useStateProvider } from "../utils/StateProvider";
 
 export default function Navbar({ navBackground }) {
   const [{ userInfo }] = useStateProvider();
-  //   console.log(userInfo);
 
   return (
     <Container
@@ -20,16 +19,22 @@ export default function Navbar({ navBackground }) {
         <input type="text" placeholder="Artists, songs or podcasts" />
       </div>
       <a href="#" className="avatar">
-        <div className="user_name">{userInfo?.userName}</div>
-        <div className="bell">
-          <GoBell />
+        <div className="bell-circle">
+          <div className="bell">
+            <GoBell />
+          </div>
         </div>
-
-        <img
-          className="profile_img"
-          src={userInfo?.userImg}
-          alt="profile img"
-        />
+        <div className="users-icon-circle">
+          <div className="users-icon">
+            <FaUsers />
+          </div>
+        </div>
+        <div className="profile_img-circle">
+          <div className="profile_img" title={userInfo?.userName}>
+            <img src={userInfo?.userImg} alt="profile img" />
+            <div className="user-name-popup">{userInfo?.userName}</div>
+          </div>
+        </div>
       </a>
     </Container>
   );
@@ -40,7 +45,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  height: 15vh;
+  height: 10vh;
   position: sticky;
   top: 0;
   transition: 0.3s ease-in-out;
@@ -65,92 +70,94 @@ const Container = styled.div`
   .avatar {
     text-decoration: none;
     color: #000000b4;
-
-    padding: 0.3rem 0.4rem;
+    padding: 0.3rem 0.3rem;
     border-radius: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
     transition: 0.2s ease-in-out;
-    .user_name {
-      display: grid;
-      place-items: center;
-      /* border: 1px solid red; */
-      background-color: #b3b3b3;
-      padding: 0.8rem 1.2rem;
-
-      /* height: 3rem;
-      width: 6rem; */
-      font-size: 1.1rem;
-      border-radius: 2rem;
-      transition: 0.2s ease-in-out;
+    opacity: 0.8;
+    .bell-circle,
+    .profile_img-circle,
+    .users-icon-circle {
+      display: flex;
+      align-items: center;
+      background-color: #121212;
+      border-radius: 50%;
+      padding: 0.3rem 0.3rem;
       &:hover {
-        color: white;
+        background-color: black;
+        opacity: 1;
       }
     }
-    .bell {
-      display: grid;
-      place-items: center;
-      height: 3rem;
-      width: 3rem;
-      border-radius: 50%;
-      background-color: #b3b3b3;
-      font-size: 1.1rem;
-      transition: 0.2s ease-in-out;
-      &:hover {
+    }
+    .bell-circle,
+    .users-icon-circle {
+      .bell,
+      .users-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1.5rem;
+        width: 1.5rem;
+        font-size: 1.1rem;
+        border-radius: 50%;
         color: white;
+        &:hover {
+          color: white;
+        }
       }
     }
-    .profile_img {
-      height: 3rem;
-      width: 3rem;
+    .profile_img-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #121212;
       border-radius: 50%;
+      padding: 0.3rem 0.3rem;
+      .profile_img {
+        height: 1.8rem;
+        width: 1.8rem;
+        object-fit: cover;
+        img {
+          border-radius: 50%;
+          width: 1.8rem;
+          height: 1.8rem;
+          object-fit: cover;
+        }
+        &:hover {
+          transform: scale(1.05);
+          transition: 0.2s ease-in-out;
+        }
+        .user-name-popup {
+          display: none;
+          position: absolute;
+          background-color: #fff;
+          color: #000;
+          border-radius: 5px;
+          padding: 5px;
+          top: -30px;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: opacity 0.2s;
+        }
+        .profile_img:hover .user-name-popup {
+          display: block;
+          opacity: 1;
+        }
+        .profile_img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+          &:hover {
+            transform: scale(1.05);
+            transition: 0.2s ease-in-out;
+          }
+        }
+      }
     }
   }
-`;
-
-// import React, { useEffect } from 'react';
-// import { FaUserAlt, FaUsers, FaBell } from 'react-icons/fa';
-
-// import styled from 'styled-components';
-// import { useStateProvider } from '../utils/StateProvider';
-
-// function Navbar() {
-
-//   return (
-//     <Container>
-//       <div className="icons">
-//         <FaBell />
-//         <FaUsers />
-//         <FaUserAlt />
-//       </div>
-
-//     </Container>
-//   );
-// }
-
-// // export default Navbar;
-
-// // const Container = styled.div`
-// //   width: 100%;
-// //   height: 25%;
-// //   .icons {
-// //     display: flex;
-// //     align-items: center;
-// //     justify-content: flex-end;
-// //     height: 10vh;
-// //     padding: 1rem;
-// //     margin-top: 0;
-// //   }
-// //   svg {
-// //     color: #b3b3b3;
-// //     font-size: 2.2rem;
-// //     padding: 0.5rem;
-// //     &:hover {
-// //       color: white;
-// //       transform: scale(1.05);
-// //       transition: 0.2s ease-in-out;
-// //     }
-// //   }
-// // `;
+}
+`

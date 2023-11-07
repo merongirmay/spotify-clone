@@ -1,8 +1,14 @@
 import styled from "styled-components";
 // import { useNavigate } from "react-router-dom";
 
-const AUTH_URL =
-  "https://accounts.spotify.com/authorize?client_id=0384a3364b7d4b1b847e1490f9c3d00c&response_type=token&redirect_uri=http://localhost:5173&scope=streaming%20user-library-read%20user-library-modify%20user-read-email%20user-read-private%20user-modify-playback-state%20user-read-playback-state%20user-read-currently-playing%20user-read-recently-played%20user-read-playback-position%20user-top-read";
+const AUTH_URL_RAZ =
+  "https://accounts.spotify.com/authorize?client_id=b730b7cf6222456da05e4bb8619a78a4&response_type=token&redirect_uri=http://localhost:5173&scope=streaming%20user-library-read%20user-library-modify%20user-read-email%20user-read-private%20user-modify-playback-state%20user-read-playback-state%20user-read-currently-playing%20user-read-recently-played%20user-read-playback-position%20user-top-read";
+
+const AUTH_URL_MERON =
+  "https://accounts.spotify.com/authorize?client_id=b730b7cf6222456da05e4bb8619a78a4&response_type=token&redirect_uri=http://localhost:5173&scope=streaming%20user-library-read%20user-library-modify%20user-read-email%20user-read-private%20user-modify-playback-state%20user-read-playback-state%20user-read-currently-playing%20user-read-recently-played%20user-read-playback-position%20user-top-read";
+
+const AUTH_URL_TOMEK =
+  "https://accounts.spotify.com/authorize?client_id=b730b7cf6222456da05e4bb8619a78a4&response_type=token&redirect_uri=http://localhost:5173&scope=streaming%20user-library-read%20user-library-modify%20user-read-email%20user-read-private%20user-modify-playback-state%20user-read-playback-state%20user-read-currently-playing%20user-read-recently-played%20user-read-playback-position%20user-top-read";
 
 // 0384a3364b7d4b1b847e1490f9c3d00c
 
@@ -21,7 +27,12 @@ function Login() {
         src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png"
         alt="spotify"
       />
-      <a href={AUTH_URL}>Connect Reactify</a>
+      <div className = "buttons-container">
+        <a href={AUTH_URL_RAZ}>Raz's Reactify</a>
+        <a href={AUTH_URL_MERON}>Meron's Reactify</a>
+        <a href={AUTH_URL_TOMEK}>Tomek's Reactify</a>
+      </div>
+
     </Container>
   );
 }
@@ -41,6 +52,8 @@ const Container = styled.div`
     height: 20vh;
   }
   a {
+    margin-top:2rem;
+    margin-right:2rem;
     text-decoration: none;
     padding: 1rem 5rem;
     border-radius: 5rem;
@@ -49,5 +62,10 @@ const Container = styled.div`
     color: #49f585;
     font-size: 1.4rem;
     cursor: pointer;
+  }
+  .buttons-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;

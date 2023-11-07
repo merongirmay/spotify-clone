@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Spotify from "./components/Spotify";
 import { useStateProvider } from "./utils/StateProvider";
 import { reducerCases } from "./utils/Constants";
+import { useEffect } from "react";
 
 function App() {
   //use custom hook
