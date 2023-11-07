@@ -91,73 +91,71 @@ const Container = styled.div`
         opacity: 1;
       }
     }
-    }
-    .bell-circle,
-    .users-icon-circle {
-      .bell,
-      .users-icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 1.5rem;
-        width: 1.5rem;
-        font-size: 1.1rem;
-        border-radius: 50%;
+  }
+  .bell-circle,
+  .users-icon-circle {
+    .bell,
+    .users-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 1.5rem;
+      width: 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 50%;
+      color: white;
+      &:hover {
         color: white;
-        &:hover {
-          color: white;
-        }
       }
     }
-    .profile_img-circle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #121212;
-      border-radius: 50%;
-      padding: 0.3rem 0.3rem;
-      .profile_img {
-        height: 1.8rem;
+  }
+  .profile_img-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #121212;
+    border-radius: 50%;
+    padding: 0.3rem 0.3rem;
+    .profile_img {
+      height: 1.8rem;
+      width: 1.8rem;
+      object-fit: cover;
+      img {
+        border-radius: 50%;
         width: 1.8rem;
+        height: 1.8rem;
         object-fit: cover;
-        img {
-          border-radius: 50%;
-          width: 1.8rem;
-          height: 1.8rem;
-          object-fit: cover;
-        }
+      }
+      &:hover {
+        transform: scale(1.05);
+        transition: 0.2s ease-in-out;
+      }
+      .user-name-popup {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        color: #000;
+        border-radius: 5px;
+        padding: 5px;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity 0.2s;
+      }
+      .profile_img:hover .user-name-popup {
+        display: block;
+        opacity: 1;
+      }
+      .profile_img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
         &:hover {
           transform: scale(1.05);
           transition: 0.2s ease-in-out;
         }
-        .user-name-popup {
-          display: none;
-          position: absolute;
-          background-color: #fff;
-          color: #000;
-          border-radius: 5px;
-          padding: 5px;
-          top: -30px;
-          left: 50%;
-          transform: translateX(-50%);
-          transition: opacity 0.2s;
-        }
-        .profile_img:hover .user-name-popup {
-          display: block;
-          opacity: 1;
-        }
-        .profile_img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-          border-radius: 50%;
-          &:hover {
-            transform: scale(1.05);
-            transition: 0.2s ease-in-out;
-          }
-        }
       }
     }
   }
-}
-`
+`;
