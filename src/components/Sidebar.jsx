@@ -41,9 +41,11 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     .logo {
-      text-align: center;
+      text-align: left;
+      padding-left: 1rem;
       //margin: 1rem, 0;
       img {
+       
         max-inline-size: 30%;
         block-size: auto;
         text-align: center;

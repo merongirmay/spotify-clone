@@ -5,16 +5,35 @@ import { HiOutlineQueueList } from "react-icons/hi2";
 import { IoMdVolumeHigh } from "react-icons/io";
 import { BsArrowsAngleExpand } from "react-icons/bs";
 import { LuMonitorSpeaker } from "react-icons/lu";
+import { useStateProvider } from "../utils/StateProvider";
+import axios from "axios";
 
 function VolumeBar() {
-  const [volume, setVolume] = useState(50);
+  const [{ token }] = useStateProvider();
 
-  const handleVolumeChange = (e) => {
-    const newVolume = e.target.value;
-    setVolume(newVolume);
+  const setVolume = async (e) => {
+    await axios.put(
+      `https://api.spotify.com/v1/me/player/volume`,
+      {},
+      {
+        params: {
+            volume_percent: parseInt(e.target.value)
+        },
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      }
+    );
   };
+  // const [volume, setVolume] = useState(50);
 
-  const volumePosition = volume + "%";
+  // const handleVolumeChange = (e) => {
+  //   const newVolume = e.target.value;
+  //   setVolume(newVolume);
+  // };
+
+  // const volumePosition = volume + "%";
 
   return (
     <VolumeBarContainer>
@@ -23,15 +42,7 @@ function VolumeBar() {
       <LuMonitorSpeaker />
       <VolumeControl>
         <IoMdVolumeHigh />
-        <VolumeSlider
-          type="range"
-          min="0"
-          max="100"
-          step="1"
-          value={volume}
-          onInput={handleVolumeChange}
-          style={{ "--volume-position": volumePosition }}
-        />
+        <input className="volume_slider" type="range" min={0} max={100} onMouseUp={(e) => setVolume(e)} />
       </VolumeControl>
       <BsArrowsAngleExpand />
     </VolumeBarContainer>
@@ -56,6 +67,9 @@ const VolumeControl = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  .volume_slider {
+
+  }
 `;
 
 const VolumeSlider = styled.input`
