@@ -179,7 +179,7 @@ const Container = styled.div`
         display: grid;
         grid-template-columns: 0.3fr 3fr 2fr 0.1fr;
         &:hover {
-          background-color: rgba(0, 0, 0, 0.7);
+          background-color: rgba(50, 45, 45, 0.7);
         }
         .col {
           display: flex;

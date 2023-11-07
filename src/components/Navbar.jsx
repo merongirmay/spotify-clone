@@ -10,7 +10,7 @@ export default function Navbar({navBackground}) {
 //   console.log(userInfo);
 
   return (
-    <Container style={{backgroundColor: navBackground ? "rgba(0,0,0,0.7)" : "transparent"}}  >
+    <Container style={{backgroundColor: navBackground ? "rgba(67, 0, 255, 0.7)" : "transparent"}}  >
       <div className="search_bar">
         <FaSearch />
         <input type="text" placeholder="Artists, songs or podcasts" />
