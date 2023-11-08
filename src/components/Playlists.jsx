@@ -118,7 +118,28 @@ const Container = styled.div`
     &-thumb {
       background-color: gray;
     }
+
     /* &-track {
+
+
+    border-radius: 10px;
+    background-color: #121212;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    height: 70vh;
+    max-height: 100%;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 11px;
+
+      &-thumb {
+        background-color: gray;
+      }
+      /* &-track {
+main
         background-color: black; // we can try and see if we can use the track bkg
       } */
   }
