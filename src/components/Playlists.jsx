@@ -116,13 +116,14 @@ const Container = styled.div`
     }
   }
   .library {
-    position: sticky;
-    top: 0;
     display: flex;
     justify-content: space-around;
     width: 100%;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    box-shadow: rgb(0, 0, 0,) 0px, 25px, 50px, -12px;
+    position: sticky;
+    top: 0;
+    padding: 1rem 0;
+    box-shadow:#121212 0px 20px 30px -10px;
+    background-color:#121212;
    
     span {
       background-color: #2a2a2a;
