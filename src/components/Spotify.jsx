@@ -83,7 +83,7 @@ const Container = styled.div`
   max-height: 100vh;
   overflow: hidden;
   display: grid;
-  grid-template-rows: 85vh 15vh;
+  grid-template-rows: 90vh 10vh;
 
   .spotify-body {
     display: grid;
