@@ -106,10 +106,9 @@ const Container = styled.div`
   gap: 16px;
   height: 72vh;
   max-height: 100%;
+  padding-bottom: 3rem;
   overflow: auto;
-  :hover {
-    background-color: rgb(42, 42, 42);
-  }
+ 
   &::-webkit-scrollbar {
     width: 11px;
     &-thumb {
@@ -121,20 +120,22 @@ const Container = styled.div`
     top: 0;
     display: flex;
     justify-content: space-around;
-
+    width: 100%;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+   
     span {
       background-color: #2a2a2a;
       border-radius: 15px;
       color: white;
       padding: 5px 8px;
       font-size: 13px;
+
     }
   }
   .playlist {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding-bottom: 3rem;
     :hover {
       background-color: rgb(42, 42, 42);
     }
