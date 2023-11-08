@@ -10,7 +10,7 @@ export default function Navbar({ navBackground }) {
     <Container
       style={{
         backgroundColor: navBackground
-          ? "rgba(67, 0, 255, 0.7)"
+          ? "#1F1252"
           : "transparent",
       }}
     >
