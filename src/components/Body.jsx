@@ -240,6 +240,7 @@ const Container = styled.div`
         padding: 0.5rem 0.5rem;
         display: grid;
         grid-template-columns: 0.3fr 1fr 1fr 1fr 0.1fr;
+        transition: 0.2ms ease-in-out;
         &:hover {
           background-color: rgb(42, 42, 42);
         }

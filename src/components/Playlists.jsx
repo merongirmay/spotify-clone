@@ -122,6 +122,7 @@ const Container = styled.div`
     justify-content: space-around;
     width: 100%;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    box-shadow: rgb(0, 0, 0,) 0px, 25px, 50px, -12px;
    
     span {
       background-color: #2a2a2a;
@@ -136,7 +137,9 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
-    :hover {
+    transition: 0.25ms ease-in-out;
+    cursor: pointer;
+    &:hover {
       background-color: rgb(42, 42, 42);
     }
     &_info {
@@ -151,7 +154,6 @@ const Container = styled.div`
       img {
         gap: 16px;
         height: 3rem;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px, 25px, 50px, -12px;
         border-radius: 5px;
         color: white;
       }

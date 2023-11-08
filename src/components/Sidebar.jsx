@@ -70,7 +70,6 @@ const Container = styled.div`
         transition: 0.3ms ease-in-out;
         :hover {
           color: #fff;
-          transition: 0.2.5ms ease-in-out;
         }
       }
     }
