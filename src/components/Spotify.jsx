@@ -120,7 +120,7 @@ const Container = styled.div`
     background: linear-gradient(
       to bottom,
       #000000 0%,
-      #4300ff 50%,
+      #1F1252 50%,
       #000000 100%
     );
   }
