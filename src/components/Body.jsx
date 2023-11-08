@@ -235,7 +235,7 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       margin-top: 1rem;
-      padding-bottom: 2rem;
+      padding-bottom: 3rem;
       .row {
         padding: 0.5rem 0.5rem;
         display: grid;
