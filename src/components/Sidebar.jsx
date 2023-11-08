@@ -67,9 +67,10 @@ const Container = styled.div`
         display: flex;
         gap: 16px;
         cursor: pointer;
-        transition: 0.2.5ms ease-in-out;
+        transition: 0.3ms ease-in-out;
         :hover {
           color: #fff;
+          transition: 0.2.5ms ease-in-out;
         }
       }
     }

@@ -21,27 +21,24 @@ export default function Playlists() {
       );
       // console.log(response);
       const { items } = response.data;
-      //  console.log(items)
+       // console.log(items)
 
       //const imageUrl = items.images[0].url;
       // console.log(items.images[0].url);
-
-      // const playlists = items.map((playlist) => {
-      //   const name = playlist.name;
-      //   const id = playlist.id;
-      //   const ownerName = playlist.owner.display_name;
-      //   const imageUrl = playlist.images[0].url;
-      //   const type = playlist.type;
-       
-
-      //   return { name, id, ownerName, imageUrl, type };
-      // });
-      
-      const playlists = items.map(({ name, id }) => {
-        return { name, id };
+      const playlists = items.map((playlist) => {
+        const name = playlist.name;
+        const id = playlist.id;
+        const ownerName = playlist.owner.display_name;
+        //const imageUrl = playlist.uri;
+        const type = playlist.type;
+        
+        return { name, id, ownerName, type };
       });
-      
-      
+      console.log(playlists)
+      // const playlists = items.map(({ name, id }) => {
+      //   return { name, id };
+      // });
+
       dispatch({ type: reducerCases.SET_PLAYLISTS, playlists });
     };
 
@@ -49,61 +46,50 @@ export default function Playlists() {
   }, [token, dispatch]);
 
   const changeCurrentPlaylist = (selectedPlaylistId) => {
-    dispatch({ type: reducerCases.SET_PLAYLIST_ID, selectedPlaylistId})
-  }
-  
+    dispatch({ type: reducerCases.SET_PLAYLIST_ID, selectedPlaylistId });
+  };
+
   return (
     <Container>
-
-<ul>
-        {playlists.map(({ name, id }) => {
-          return <li key={id} onClick={() =>changeCurrentPlaylist(id)} >{name}</li>;
-        })}
-      
-      </ul>
-
-      {/* <div className="playlist-container">
-        <div className="library">
+      {/*<ul>
+     <div className="library">
           <span>Playlists</span>
           <span>Artist</span>
           <span>Album</span>
           <span>Podcasts & Shows</span>
      </div>
+        {playlists.map(({ name, id }) => {
+          return <li key={id} onClick={() =>changeCurrentPlaylist(id)} >{name}</li>;
+        })}
+      
+      </ul> */}
 
-     
-        <div className="info">
-          {playlists.map(({ name, id, ownerName, imageUrl, type }) => {
-            return (
-              <div className="info playlist-item" key={id}>
-                <div className="image playlist-image-name">
-                  <img src={imageUrl} alt={name} />
-                  <span className="playlist-name">{name}</span>
-                </div>
-                <div className="playlist-type-username ">
-                <span className="playlist-type"> {type} </span>
-                <BsDot /> 
-                  <span className="playlist-username">{ownerName}</span>  
-                </div>
-              </div>
-              
-            );
-          })}
-        </div>
-        {playlists.map(({ name, id, ownerName, imageUrl, type }) => {
-            return (
-              <li key={id}>
-                <img src={imageUrl} alt={name} /> {name}
-                <span style={{ display: "block" }}>
-                  {" "}
-                  {type} <BsDot />
-                  {ownerName}
-                </span>
-              </li>
-            );
-          })} 
-       
-  </div> */}
-   
+      <div className="library">
+        <span>Playlists</span>
+        <span>Artist</span>
+        <span>Album</span>
+        <span>Podcasts & Shows</span>
+      </div>
+
+      {playlists.map(({ name, id, ownerName, type }) => {
+        return (
+          <div
+            className="playlist"
+            key={id}
+            onClick={() => changeCurrentPlaylist(id)}
+          >
+            <div className="image">
+              <img src="https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2" alt=""/>
+            </div>
+            <div className="playlist_info">
+              <h4>
+                {name}
+              </h4>
+              <span> {type} <BsDot />{ownerName}</span>
+            </div>
+          </div>
+        );
+      })}
     </Container>
   );
 }
@@ -113,143 +99,97 @@ const Container = styled.div`
   overflow: hidden;
   color: rgb(179, 179, 179);
   margin: 10px;
-    /* border: 1px solid white; */
-    .library {
-      position: sticky;
-      top: 0;
-      border: 1px solid white;
-      display: flex;
-      justify-content: space-around;
-
-      span {
-        background-color: #2a2a2a;
-        /* box-shadow: rgba(0, 0, 0, 0.25) 0px, 25px, 50px, -12px; */
-        /* border: 1px solid white; */
-        border-radius: 15px;
-        color: white;
-        padding: 5px;
-        font-size: 13px;
-      }
-    }
-    .info {
-      display: flex;
-     flex-direction: column;
-      gap: 1rem;
-      .image {
-        img {
-       
-          gap: 16px;
-          height: 3rem;
-          box-shadow: rgba(0, 0, 0, 0.25) 0px, 25px, 50px, -12px;
-          border-radius: 5px;
-        }
-      }
-.playlist-item {
+  border-radius: 10px;
+  background-color: #121212;
+  list-style-type: none;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
- 
-  border-radius: 8px;
-  .playlist-image-name {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  .playlist-image-name img {
-  width: 64px;
-  height: 64px;
-  margin-right: 8px;
-}
-.playlist-name {
-  font-size: 16px;
-  font-weight: bold;
-}
-}
-.playlist-type-username {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .playlist-type {
-  font-size: 14px;
-  color: gray;
-}
-.playlist-username {
-  font-size: 14px;
-  color: gray;
-}
-}
+  padding: 16px;
+  gap: 16px;
+  height: 67vh;
+  max-height: 100%;
+  overflow: auto;
+  :hover{
+    background-color: rgb(42, 42, 42);
+  }
+  &::-webkit-scrollbar {
+    width: 11px;
 
-}
-      /* .info {
-        display: flex;
-        flex-direction: row;
-        span{
-          display: flex;
-          flex-direction: row;
-        }
-      } */
+    &-thumb {
+      background-color: gray;
     }
-
-    border-radius: 10px;
-    background-color: #121212;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    gap: 16px;
-    height: 67vh;
-    max-height: 100%;
-    overflow: auto;
-    &::-webkit-scrollbar {
-      width: 11px;
-
-      &-thumb {
-        background-color: gray;
-      }
-      /* &-track {
+    /* &-track {
         background-color: black; // we can try and see if we can use the track bkg
       } */
-    }
-    li {
-      display: flex;
-      gap: 16px;
-      cursor: pointer;
-      transition: 0.2ms ease-in-out;
-      padding: 10px;
+  }
+  /* border: 1px solid white; */
+  .library {
+    position: sticky;
+    top: 0;
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content: space-around;
+
+    span {
+      background-color: #2a2a2a;
+      /* box-shadow: rgba(0, 0, 0, 0.25) 0px, 25px, 50px, -12px; */
+      /* border: 1px solid white; */
+      border-radius: 15px;
       color: white;
-      border-radius: 5px;
-      &:hover {
-        background-color: black;
-      }
-      img {
-        height: 3rem;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px, 25px, 50px, -12px;
-        border-radius: 5px;
-      }
+      padding: 5px 8px;
+      font-size: 13px;
     }
-    .playlists {
+  }
+  .playlist {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    :hover{
+      background-color: rgb(42, 42, 42);
+    }
+    &_info{
       display: flex;
       flex-direction: column;
-      padding: 10px;
-      color: white;
-      border-radius: 5px;
+      gap:0.3rem;
+       h4{
+      color: #fff;
+    }}
+    .image {
       img {
         gap: 16px;
         height: 3rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px, 25px, 50px, -12px;
         border-radius: 5px;
+        color: white;
       }
-      div {
-        display: flex;
-        justify-content: flex-start;
-        align-content: center;
-        align-items: flex-start;
-        gap: 16px;
-      }
-      span {
-        justify-content: flex-start;
-      }
-      h5 {
-        color: #888888;
-      }
+  }
+  }
+
+  
+/* .playlists {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    img {
+      gap: 16px;
+      height: 3rem;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px, 25px, 50px, -12px;
+      border-radius: 5px;
     }
+    div {
+      display: flex;
+      justify-content: flex-start;
+      align-content: center;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    span {
+      justify-content: flex-start;
+    }
+    h5 {
+      color: #888888;
+    }
+  } */
 `;
