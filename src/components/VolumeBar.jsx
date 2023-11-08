@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { AiOutlinePlaySquare } from "react-icons/ai";
 import { HiOutlineQueueList } from "react-icons/hi2";
@@ -20,7 +19,11 @@ function VolumeBar() {
       {},
       {
         params: {
+
+          volume_percent: parseInt(e.target.value),
+
           volume_percent: newVolume,
+main
         },
         headers: {
           Authorization: "Bearer " + token,
@@ -55,6 +58,16 @@ function VolumeBar() {
       <HiOutlineQueueList />
       <LuMonitorSpeaker />
       <VolumeControl>
+
+        <IoMdVolumeHigh />
+        <input
+          className="volume_slider"
+          type="range"
+          min={0}
+          max={100}
+          onMouseUp={(e) => setVolume(e)}
+        />
+
         {muted ? (
           <BsVolumeMuteFill onClick={toggleMute} />
            ) : (
@@ -81,6 +94,7 @@ function VolumeBar() {
         style={{ "--volume-position": volumePosition }}
       />
     )}
+ main
       </VolumeControl>
       <BsArrowsAngleExpand />
     </VolumeBarContainer>
@@ -102,18 +116,29 @@ const VolumeBarContainer = styled.div`
   &:hover {
     color: white;
   }
+  input {
+    border-radius: 2rem;
+    height: 0.2rem;
+    cursor:pointer;
+   
+  }
 `;
 
 const VolumeControl = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  .volume_slider {
+  }
+`;
+
 `
+main
 
 const VolumeSlider = styled.input`
   width: 100%;
   height: 4px; /* Adjust the height for thickness */
-  -webkit-appearance: none;
+  -appearance: none;
   background: linear-gradient(
     90deg,
     #1db954 0%,
