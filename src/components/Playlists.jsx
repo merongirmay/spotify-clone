@@ -53,19 +53,7 @@ export default function Playlists() {
 
   return (
     <Container>
-      {/*<ul>
-     <div className="library">
-          <span>Playlists</span>
-          <span>Artist</span>
-          <span>Album</span>
-          <span>Podcasts & Shows</span>
-     </div>
-        {playlists.map(({ name, id }) => {
-          return <li key={id} onClick={() =>changeCurrentPlaylist(id)} >{name}</li>;
-        })}
       
-      </ul> */}
-
       <div
         className="library"
       
@@ -116,7 +104,7 @@ const Container = styled.div`
   flex-direction: column;
   padding: 16px;
   gap: 16px;
-  height: 67vh;
+  height: 72vh;
   max-height: 100%;
   overflow: auto;
   :hover {
@@ -124,49 +112,18 @@ const Container = styled.div`
   }
   &::-webkit-scrollbar {
     width: 11px;
-
     &-thumb {
       background-color: gray;
     }
-
-    /* &-track {
-
-
-    border-radius: 10px;
-    background-color: #121212;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    gap: 16px;
-    height: 70vh;
-    max-height: 100%;
-    overflow: auto;
-    &::-webkit-scrollbar {
-      width: 11px;
-
-      &-thumb {
-        background-color: gray;
-      }
-      /* &-track {
-main
-        background-color: black; // we can try and see if we can use the track bkg
-      } */
   }
-  /* border: 1px solid white; */
   .library {
     position: sticky;
     top: 0;
-    
-    
-    /* border: 1px solid white; */
     display: flex;
     justify-content: space-around;
 
     span {
       background-color: #2a2a2a;
-      /* box-shadow: rgba(0, 0, 0, 0.25) 0px, 25px, 50px, -12px; */
-      /* border: 1px solid white; */
       border-radius: 15px;
       color: white;
       padding: 5px 8px;
@@ -198,31 +155,4 @@ main
       }
     }
   }
-
-  /* .playlists {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    color: white;
-    border-radius: 5px;
-    img {
-      gap: 16px;
-      height: 3rem;
-      box-shadow: rgba(0, 0, 0, 0.25) 0px, 25px, 50px, -12px;
-      border-radius: 5px;
-    }
-    div {
-      display: flex;
-      justify-content: flex-start;
-      align-content: center;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    span {
-      justify-content: flex-start;
-    }
-    h5 {
-      color: #888888;
-    }
-  } */
 `;

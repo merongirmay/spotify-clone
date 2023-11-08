@@ -56,7 +56,8 @@ function Spotify() {
     };
 
     //call the function
-    getUserInfo();
+    getUserInfo(); 
+    window.history.pushState({}, null, '/')
   }, [token, dispatch]);
 
   return (
