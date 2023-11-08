@@ -37,7 +37,7 @@ export default function CurrentTrack() {
     };
 
     getCurrentTrack();
-  }, [token, dispatch]);
+  }, [token, dispatch, currentlyPlaying]);
 
   return (
     <Container>
