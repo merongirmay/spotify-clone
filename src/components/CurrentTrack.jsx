@@ -58,6 +58,7 @@ export default function CurrentTrack() {
 
 const Container = styled.div`
   .track {
+    width:300px;
     display: flex;
     align-items: center;
     gap: 1rem;

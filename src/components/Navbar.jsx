@@ -16,7 +16,7 @@ export default function Navbar({ navBackground }) {
     >
       <div className="search_bar">
         <FaSearch />
-        <input type="text" placeholder="Artists, songs or podcasts" />
+        <input type="text" placeholder="What do you want to listen to?" />
       </div>
       <a href="#" className="avatar">
         <div className="bell-circle">
@@ -51,7 +51,7 @@ const Container = styled.div`
   transition: 0.3s ease-in-out;
 
   .search_bar {
-    background-color: white;
+    background-color: white; 
     width: 30%;
     padding: 0.4rem 1rem;
     border-radius: 2rem;
@@ -66,7 +66,11 @@ const Container = styled.div`
         outline: none;
       }
     }
+    svg {
+      color: #ccc; 
+    }
   }
+  
   .avatar {
     text-decoration: none;
     color: #000000b4;
