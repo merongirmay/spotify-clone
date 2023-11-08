@@ -17,6 +17,7 @@ function Spotify() {
 
   const [navBackground, setNavBackground] = useState(false);
   const [headerBackground, setHeaderBackground] = useState(false);
+ 
   //   console.log(navBackground);
 
   const scrollHandler = () => {
