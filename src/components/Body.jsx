@@ -190,11 +190,10 @@ export default function Body({ headerBackground }) {
 const Container = styled.div`
   .line {
     position: sticky;
-    top: 15vh;
+    top: 16vh;
     height: 1px;
-    background-color: white;
-    margin-bottom:1rem;
-    margin-top:0;
+    background-color: grey;
+    margin: 0 1rem 1rem 1rem
   }
   .playlist {
     margin: 0 2rem;
