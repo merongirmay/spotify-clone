@@ -188,13 +188,6 @@ export default function Body({ headerBackground }) {
 }
 
 const Container = styled.div`
-  .line {
-    position: sticky;
-    top: 16vh;
-    height: 1px;
-    background-color: grey;
-    margin: 0 1rem 1rem 1rem
-  }
   .playlist {
     margin: 0 2rem;
     display: flex;
@@ -211,7 +204,7 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      color: #e0dede;
+      color: #E0DEDE;
       .title {
         color: white;
         font-size: 4rem;
@@ -220,19 +213,29 @@ const Container = styled.div`
   }
   .list {
     .header_row {
+      position:relative;
       display: grid;
       grid-template-columns: 0.3fr 3fr 2fr 0.1fr;
-      color: #dddcdc;
+      color: #DDDCDC;
       margin: 1rem 0 0 0;
       position: sticky;
       top: 10vh;
       padding: 1rem 3rem;
       transition: 0.3s ease-in-out;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 3%;
+        right: 3%;
+        bottom: 0;
+        border-bottom: 1px solid grey;
+      }
     }
     .tracks {
       display: flex;
       flex-direction: column;
-      margin-bottom: 5rem;
+      margin-top: 1rem;
+      padding-bottom: 2rem;
       .row {
         padding: 0.5rem 0.5rem;
         display: grid;
@@ -244,7 +247,7 @@ const Container = styled.div`
           margin:rem;
           display: flex;
           align-items: center;
-          color: #dddcdc;
+          color: #DDDCDC;
           img {
             height: 40px;
           }

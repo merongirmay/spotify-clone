@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import styled from "styled-components";
 import { BsDot } from "react-icons/bs";
 import { useStateProvider } from "../utils/StateProvider";
@@ -7,6 +7,8 @@ import { reducerCases } from "../utils/Constants";
 
 export default function Playlists() {
   const [{ token, playlists }, dispatch] = useStateProvider();
+
+ 
 
   useEffect(() => {
     const getPlaylistData = async () => {
@@ -21,7 +23,7 @@ export default function Playlists() {
       );
       // console.log(response);
       const { items } = response.data;
-       // console.log(items)
+      // console.log(items)
 
       //const imageUrl = items.images[0].url;
       // console.log(items.images[0].url);
@@ -31,10 +33,10 @@ export default function Playlists() {
         const ownerName = playlist.owner.display_name;
         //const imageUrl = playlist.uri;
         const type = playlist.type;
-        
+
         return { name, id, ownerName, type };
       });
-      console.log(playlists)
+      console.log(playlists);
       // const playlists = items.map(({ name, id }) => {
       //   return { name, id };
       // });
@@ -64,7 +66,10 @@ export default function Playlists() {
       
       </ul> */}
 
-      <div className="library">
+      <div
+        className="library"
+      
+      >
         <span>Playlists</span>
         <span>Artist</span>
         <span>Album</span>
@@ -79,13 +84,18 @@ export default function Playlists() {
             onClick={() => changeCurrentPlaylist(id)}
           >
             <div className="image">
-              <img src="https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2" alt=""/>
+              <img
+                src="https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2"
+                alt=""
+              />
             </div>
             <div className="playlist_info">
-              <h4>
-                {name}
-              </h4>
-              <span> {type} <BsDot />{ownerName}</span>
+              <h4>{name}</h4>
+              <span>
+                {" "}
+                {type}<BsDot />
+                {ownerName}
+              </span>
             </div>
           </div>
         );
@@ -109,7 +119,7 @@ const Container = styled.div`
   height: 67vh;
   max-height: 100%;
   overflow: auto;
-  :hover{
+  :hover {
     background-color: rgb(42, 42, 42);
   }
   &::-webkit-scrollbar {
@@ -147,6 +157,8 @@ main
   .library {
     position: sticky;
     top: 0;
+    
+    
     /* border: 1px solid white; */
     display: flex;
     justify-content: space-around;
@@ -165,16 +177,17 @@ main
     display: flex;
     align-items: center;
     gap: 1rem;
-    :hover{
+    :hover {
       background-color: rgb(42, 42, 42);
     }
-    &_info{
+    &_info {
       display: flex;
       flex-direction: column;
-      gap:0.3rem;
-       h4{
-      color: #fff;
-    }}
+      gap: 0.3rem;
+      h4 {
+        color: #fff;
+      }
+    }
     .image {
       img {
         gap: 16px;
@@ -183,11 +196,10 @@ main
         border-radius: 5px;
         color: white;
       }
-  }
+    }
   }
 
-  
-/* .playlists {
+  /* .playlists {
     display: flex;
     flex-direction: column;
     padding: 10px;
