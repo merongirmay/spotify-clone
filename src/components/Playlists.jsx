@@ -102,11 +102,11 @@ const Container = styled.div`
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 0 16px 3rem;
   gap: 16px;
   height: 72vh;
   max-height: 100%;
-  padding-bottom: 3rem;
+  /* padding-bottom: 3rem; */
   overflow: auto;
  
   &::-webkit-scrollbar {
